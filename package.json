@@ -4,13 +4,16 @@
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
+    "json-server": "^0.14.2",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-redux": "^6.0.1",
     "react-scripts": "2.1.8",
+    "react-table": "^6.9.2",
     "redux": "^4.0.1",
     "redux-axios-middleware": "^4.0.0",
+    "redux-form": "^8.1.0",
     "redux-thunk": "^2.3.0"
   },
   "scripts": {
@@ -20,7 +23,8 @@
     "eject": "react-scripts eject",
     "fix": "eslint src --fix",
     "lint": "eslint src",
-    "precommit": "yarn run lint"
+    "precommit": "yarn run lint",
+    "jsonserver": "json-server --watch db.json"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -32,7 +36,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "eslint": "^5.16.0",
+    "eslint": "^5.12.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-jsx-a11y": "^6.2.1",

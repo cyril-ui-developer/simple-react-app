@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const JSON_BASE_URL = 'https://reqres.in/api/';
+const JSON_BASE_URL = 'http://localhost:3000/';
 
 const defaultClient = axios.create({
   baseURL: JSON_BASE_URL,
