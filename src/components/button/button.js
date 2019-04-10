@@ -9,7 +9,7 @@ const Button = (props) => {
   return (
     <button
       type="submit"
-      className="btn btn-primary"
+      className=""
       onClick={handleClick}
       disabled={disabled}
     >
