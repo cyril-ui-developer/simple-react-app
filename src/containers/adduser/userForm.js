@@ -7,7 +7,7 @@ import { required, renderField } from '../../utils/validations/formValidation';
 
 const UserForm = (props) => {
   const {
-    handleSubmit, reset, submitting, pristine,
+    handleSubmit, reset, submitting, pristine, highLevelEdu,
   } = props;
 
   return (
@@ -71,13 +71,14 @@ const UserForm = (props) => {
         <option value="Bachelor's degree">Bachelor</option>
         <option value="Master's degree">Master</option>
       </Field>
+      {highLevelEdu && (
       <Field
         name="degree"
         type="text"
         component={renderField}
         label="Degree Obtained"
-
       />
+      )}
 
       <div>
 
@@ -93,6 +94,7 @@ UserForm.propTypes = {
   pristine: PropTypes.bool,
   reset: PropTypes.func,
   submitting: PropTypes.bool,
+  highLevelEdu: PropTypes.string,
 
 };
 
@@ -101,6 +103,7 @@ UserForm.defaultProps = {
   pristine: false,
   reset: () => {},
   submitting: false,
+  highLevelEdu: '',
 
 };
 

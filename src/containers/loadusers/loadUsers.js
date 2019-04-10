@@ -77,14 +77,11 @@ class LoadUsers extends Component {
       ];
 
       return (
-        <div className="App">
-          <ReactTable
-            data={reducedUsersData.usersData}
-            columns={columns}
-            filterable
-            pageSize={10}
-          />
-        </div>
+        <ReactTable
+          data={reducedUsersData.usersData}
+          columns={columns}
+          pageSize={10}
+        />
       );
     }
 }

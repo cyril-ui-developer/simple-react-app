@@ -21,6 +21,7 @@ class App extends Component {
     const { userData } = this.state;
     return (
       <main>
+        <header className="header-primary"><h2>Simple React App</h2></header>
         <section>
           <div className="container">
             <div className="row">

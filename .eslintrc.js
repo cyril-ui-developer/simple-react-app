@@ -21,6 +21,10 @@ module.exports = {
   plugins: [
     'react',
   ],
+  "env": {
+    "jest": true,
+    "browser": true,
+},
   rules: {
     "react/prefer-stateless-function": "off",
     "no-underscore-dangle": 0,
@@ -33,6 +37,7 @@ module.exports = {
         ]
       }
     ],
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": true}]
   },
 };
 
