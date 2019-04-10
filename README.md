@@ -1,10 +1,25 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Simple React App integration Req / Res API
+ A simple React app that allows for creating, updating, and viewing a user record using the https://reqres.in/ API.
 
-In the project directory, you can run:
+##Technology Stack
+1. React - User interface development
+2. HTML5 / CSS3 - Page markup and styling
+3. JavaScript/ES6 - Core language
+4. Redux - Predictable state management
+3. This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-### `npm start`
+
+
+![Simple React App Data Flow Diagram](./src/images/simplereactapp.png)
+## How to run your code
+## Setup project
+1. Clone the repository
+2. Change to the root of the project directory, and execute `npm install`. This process will take some time, so be patient!
+
+### In the project directory, you can run:
+
+ `npm start`
 
 Runs the app in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
@@ -27,47 +42,26 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Reasoning behind your technical choices.
+1. React is a popular JavaScript library for building user interfaces. React makes it painless to create interative UIs and it's  component-based. Implemented React to build stateful and stateless components.
+The components are encapsulated and they manage their state. Component can be compose to build complex UIs. For scenarios were components tree or hierarcy are very deep, the state of the application could become unpredictable and difficult to manage. Props are passed down from parent to child through intermediate children who don't need the data. Redux was introduced to solve these problems. According to Redux official website, "Redux is a predictable state container for JavaScript applications. It helps you write applications that behave consistently". Implemented Redux to pass data to components witout going through intermediate children. 
+2. Used ESLint to discover code problems without executing it. Created linting rules and formatters for coding standards and best practices. 
+3. Used Git hook with Husky - for every commit, the hooks will run eslint first, if there is/are no linting error(s), then commmit will pass else fail. Only properly linted code are pushed to the repository. 
+4. Redux-Thunk - Basic Redux store allows only simple synchronous updates. Redux-Thunk middleware extends the store and was used to write async logic that interacts with the store.
+5. Jest and Enzyme are popular unit testing tools for React application
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## Trade-offs you might have made, anything you left out, or what
+##you might do differently if you were to spend additional time on the project.
+1. Improve user experience and interface - design high fidelity mockup, use Material-UI and  CSS preprocessor like SSAS
+2. Implement React Router for component navigation
+3. Write more test cases
+4. Middleware library - use Redux-saga instead of Redux-thunk to write asynchronous code that looks synchronous
+5. Reselect - use reselect, a memorized selector function for writing more concise logic
+6. Lodash - use lodash for utility tasks like object manipulation 
+## (Ideally) Link to to the hosted application
+## (Optional) Link to other code you’re particularly proud of.
+1. https://github.com/cyril-ui-developer/react_redux_readable_app
+2. https://github.com/cyril-ui-developer/angular-space-launch-app
 
 
-
-Simple React App integration Req / Res API
-![Simple React App Data Flow Diagram](./src/images/simplereactapp.png)
