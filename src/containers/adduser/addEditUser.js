@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import { reduxForm } from 'redux-form';
 
-import addUserForm from './addUserForm';
+import UserForm from './userForm';
 import submitUserData from '../../redux/actions/addUser';
 import editUserData from '../../redux/actions/editUser';
 
@@ -22,12 +22,12 @@ function validateUser(data) {
   // }
   return errors;
 }
-const AddUserFormWrapped = reduxForm({
+const UserFormWrapped = reduxForm({
   form: 'adduser-form', // a unique identifier for this form
   enableReinitialize: true,
   validate: validateUser,
   fields: ['firstname', 'lastname', 'dob', 'address', 'phone'],
-})(addUserForm);
+})(UserForm);
 
 const mapStateToProps = state => ({
   reducerData: state.addUserReducer,
@@ -39,12 +39,12 @@ const mapDispatchToProps = dispatch => ({
 });
 
 
-class AddUser extends Component {
+class AddEditUser extends Component {
   static propTypes = {
-    actionAddUsers: PropTypes.shape({}),
+    actionAddUsers: PropTypes.func,
     reducerData: PropTypes.shape({}),
     userData: PropTypes.shape({}),
-    actionEditUsers: PropTypes.shape({}),
+    actionEditUsers: PropTypes.func,
   }
 
   static defaultProps = {
@@ -73,9 +73,9 @@ render() {
   return (
     <div>
       <header>
-         Add User
+         User Form
       </header>
-      <AddUserFormWrapped
+      <UserFormWrapped
         enableReinitialize
         onSubmit={values => this.actionsUser(userData.id, values)}
         initialValues={userData}
@@ -86,4 +86,4 @@ render() {
 }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddUser);
+export default connect(mapStateToProps, mapDispatchToProps)(AddEditUser);

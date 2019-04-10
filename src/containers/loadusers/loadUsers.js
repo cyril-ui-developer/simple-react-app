@@ -6,6 +6,7 @@ import ReactTable from 'react-table';
 import 'react-table/react-table.css';
 
 import loadUsersData from '../../redux/actions/loadUsers';
+import Button from '../../components/button/button';
 
 
 const mapStateToProps = state => ({
@@ -19,14 +20,15 @@ const mapDispatchToProps = dispatch => ({
 class LoadUsers extends Component {
     static propTypes = {
       reducerData: PropTypes.shape({}),
-      actionLoadUsers: PropTypes.arrayOf.isRequired,
-      reducedUsersData: PropTypes.arrayOf.isRequired,
+      actionLoadUsers: PropTypes.func.isRequired,
+      reducedUsersData: PropTypes.shape({}),
       userData: PropTypes.func,
     }
 
     static defaultProps = {
       reducerData: {},
       userData: () => {},
+      reducedUsersData: {},
     };
 
     constructor(props) {
@@ -68,7 +70,11 @@ class LoadUsers extends Component {
         filterable: false,
         width: 100,
         accessor: '_links.self.href',
-        Cell: ({ value, row }) => (<button type="submit" onClick={() => { this.updateUser(row, value); }}>Edit</button>),
+        Cell: ({ value, row }) => (
+          <Button handleClick={() => { this.updateUser(row, value); }}>
+        Edit
+          </Button>
+        ),
       },
       ];
 

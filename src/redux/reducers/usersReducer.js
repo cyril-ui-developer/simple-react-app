@@ -10,6 +10,7 @@ export const initialState = {
 
 const loadUsersDataActionMap = {
 
+  /* Load users */
   [LOAD_USER_DATA + PENDING]: state => ({
     ...state,
     loadingData: true,
@@ -28,7 +29,7 @@ const loadUsersDataActionMap = {
     };
   },
 
-  // Add user
+  /* Add user */
   [ADD_USER_DATA + PENDING]: state => ({
     ...state,
     loadingData: true,
@@ -48,7 +49,7 @@ const loadUsersDataActionMap = {
     };
   },
 
-  // Edit user
+  /* Edit user */
   [EDIT_USER_DATA + PENDING]: state => ({
     ...state,
     loadingData: true,

@@ -139,18 +139,20 @@ A module is a discrete, reusable component of the web page, such as the navigati
 
 @media (min-width: 48em) {
   .btn-primary {
-    background: #8dc63f;
-    border-color: #8dc63f;
+    background: #4cc63f;
+    border-color: #4cc63f;
     color: white;
-    height: 40px;
+    height: 30px;
     font-family: "Arial Regular";
-    font-size: 1.125em;
-    padding: 10px 15px;
+    font-size: 0.95em;
+    padding: 5px 10px;
     border-radius: 4px;
+    margin: 0 5px;
   }
 
   .btn-primary:hover {
-    border: 1px solid #ffffff;
+    border: 1px solid #8dc63f;
+    background: #8dc63f;
   }
 }
 /*Logo Modules*/

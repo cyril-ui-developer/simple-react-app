@@ -2,6 +2,8 @@ import React from 'react';
 import { Field } from 'redux-form';
 import PropTypes from 'prop-types';
 
+import Button from '../../components/button/button';
+
 // const renderField = ({ input, span, type, meta: { touched, error, warning } }) => (
 //     <div>
 //       <span>{span}</span>
@@ -22,7 +24,7 @@ import PropTypes from 'prop-types';
 // const minValue18 = minValue(18)
 
 
-const AddUserForm = (props) => {
+const UserForm = (props) => {
   const {
     handleSubmit, reset, submitting, pristine,
     // pristine,fields: {firstname, lastname, dob, address, phone,},
@@ -127,29 +129,29 @@ const AddUserForm = (props) => {
       </div>
 
       <div>
-        <button type="submit" disabled={pristine || submitting}>
+        <Button type="submit" disabled={pristine || submitting}>
           Submit
-        </button>
-        <button type="button" disabled={pristine || submitting} onClick={reset}>
-          Clear Values
-        </button>
+        </Button>
+        <Button type="submit" disabled={pristine || submitting} handleClick={reset}>
+          Clear
+        </Button>
       </div>
     </form>
   );
 };
 
-AddUserForm.propTypes = {
+UserForm.propTypes = {
   handleSubmit: PropTypes.func,
   pristine: PropTypes.bool,
   reset: PropTypes.func,
   submitting: PropTypes.bool,
 };
 
-AddUserForm.defaultProps = {
+UserForm.defaultProps = {
   handleSubmit: () => {},
   pristine: false,
   reset: () => {},
   submitting: false,
 };
 
-export default AddUserForm;
+export default UserForm;
