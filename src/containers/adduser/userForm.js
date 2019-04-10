@@ -3,20 +3,7 @@ import { Field } from 'redux-form';
 import PropTypes from 'prop-types';
 
 import Button from '../../components/button/button';
-
-const required = value => (value ? undefined : 'Please enter a value');
-
-const renderField = ({
-  input, label, type, meta: { touched, error, warning },
-}) => (
-  <div>
-    <span>{label}</span>
-    <div>
-      <input {...input} placeholder={label} type={type} />
-      {touched && ((error && <span>{error}</span>) || (warning && <span>{warning}</span>))}
-    </div>
-  </div>
-);
+import { required, renderField } from '../../utils/validations/formValidation';
 
 const UserForm = (props) => {
   const {
@@ -117,16 +104,5 @@ UserForm.defaultProps = {
 
 };
 
-renderField.propTypes = {
-  input: PropTypes.arrayOf({}),
-  label: PropTypes.string,
-  type: PropTypes.string,
-  meta: PropTypes.shape({}),
-};
-renderField.defaultProps = {
-  input: [],
-  label: PropTypes.string,
-  type: PropTypes.string,
-  meta: PropTypes.shape({}),
-};
+
 export default UserForm;
