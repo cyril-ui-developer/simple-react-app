@@ -58,17 +58,21 @@ const UserForm = (props) => {
         type="text"
         component={renderField}
         label="Height"
-
       />
       <Field
         name="highledu"
-        type="text"
-        component={renderField}
+        type="select"
+        component="select"
         label="Highest level of education"
-
-      />
+      >
+        <option value="none">None</option>
+        <option value="High School graduate">High School graduate</option>
+        <option value="Associate's">Associate</option>
+        <option value="Bachelor's degree">Bachelor</option>
+        <option value="Master's degree">Master</option>
+      </Field>
       <Field
-        name="degee"
+        name="degree"
         type="text"
         component={renderField}
         label="Degree Obtained"

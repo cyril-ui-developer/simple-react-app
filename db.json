@@ -9,7 +9,7 @@
       "dob": "Date of birth",
       "age": "38",
       "height": "Heigh",
-      "highledu": "Highest Level of Education Achieved",
+      "highledu": "High School graduate",
       "degree": "Degree Obtaine"
     },
     {
@@ -33,77 +33,21 @@
       "dob": "fasfaf",
       "age": "33",
       "height": "6",
-      "highledu": "faf",
+      "highledu": "Bachelor's degree",
       "degree": "fafaf",
       "id": 1454546
     },
     {
-      "firstname": "fdsfd",
-      "lastname": "fdsf",
-      "phone": "ffds",
-      "id": 1454547
-    },
-    {
-      "firstname": "cfsfsfs",
-      "lastname": "ssdsd",
-      "phone": "244424",
-      "id": 1454548
-    },
-    {
-      "data.id": 1,
-      "firstname": "dgwwwww",
-      "lastname": "dsdsds",
-      "id": 1454549
-    },
-    {
-      "firstname": "ghagha",
-      "lastname": "fashghga",
-      "phone": "2334434",
-      "dob": "dssd",
-      "id": 1454550
-    },
-    {
-      "dob": "sdfghjhk",
-      "firstname": "asdgfhjkj",
-      "id": 1454551
-    },
-    {
-      "data.id": 1,
-      "firstname": "sdhghhg",
-      "lastname": "dsghghsdgd",
-      "id": 1454552,
-      "phone": "cadadadasd"
-    },
-    {
-      "firstname": "fdfd",
-      "lastname": "fdfdfd",
-      "age": "3232",
-      "id": 1454553
-    },
-    {
-      "firstname": "fsfsdf",
-      "lastname": "fdfdf",
-      "phone": "afddfdf",
-      "id": 1454554
-    },
-    {
-      "firstname": "sffdfdf",
-      "lastname": "fdfd",
-      "phone": "fdfd",
-      "address": "fdf",
-      "dob": "fdfdf",
-      "id": 1454555
-    },
-    {
-      "data.id": 1,
-      "firstname": "gggg",
-      "lastname": "dfdd",
-      "address": "fdfd",
-      "phone": "fdfdfdf",
-      "dob": "fdfdfdf",
+      "firstname": "asvsdghhsdg",
+      "lastname": "ffdffjjdf",
+      "phone": "35232763277",
+      "address": "djsjdsjdh",
+      "dob": "265362732",
       "age": "22",
-      "height": "33",
-      "id": 1454556
+      "height": "7",
+      "highledu": "Associate's",
+      "degee": "sdfghj",
+      "id": 1454547
     }
   ]
 }
