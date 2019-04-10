@@ -4,30 +4,31 @@ import PropTypes from 'prop-types';
 
 const Button = (props) => {
   const {
-    disabled, handleClick, children,
+    disabled, value, name, handleClick,
   } = props;
   return (
-    <button
+    <input
       type="submit"
       className=""
       onClick={handleClick}
       disabled={disabled}
-    >
-      {children}
-    </button>
+      value={value}
+      name={name}
+    />
+
   );
 };
 Button.propTypes = {
   handleClick: PropTypes.func,
-  children: PropTypes.node,
+  value: PropTypes.string.isRequired,
   disabled: PropTypes.bool,
+  name: PropTypes.string.isRequired,
 
 
 };
 
 Button.defaultProps = {
   handleClick: () => {},
-  children: '',
   disabled: false,
 
 

@@ -71,9 +71,7 @@ class LoadUsers extends Component {
         width: 100,
         accessor: '_links.self.href',
         Cell: ({ value, row }) => (
-          <Button handleClick={() => { this.updateUser(row, value); }}>
-        Edit
-          </Button>
+          <Button value="Edit" name="edit" handleClick={() => { this.updateUser(row, value); }} />
         ),
       },
       ];

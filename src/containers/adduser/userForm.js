@@ -81,12 +81,8 @@ const UserForm = (props) => {
 
       <div>
 
-        <Button disabled={pristine || submitting}>
-          Submit
-        </Button>
-        <Button disabled={pristine || submitting} handleClick={reset}>
-          Clear
-        </Button>
+        <Button value="Submit" name="submit" disabled={pristine || submitting} />
+        <Button value="Clear" name="reset" disabled={pristine || submitting} handleClick={reset} />
       </div>
     </form>
   );
