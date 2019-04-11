@@ -63,10 +63,10 @@ The components are encapsulated and they manage their state. Component can be co
 4. Middleware library - use Redux-saga instead of Redux-thunk to write asynchronous code that looks synchronous
 5. Reselect - use reselect, a memorized selector function for writing more concise logic
 6. Lodash - use lodash for utility tasks like object manipulation 
-7. Handle HTTP errors e.g. 500 - server error;  empty response, implement loading spinner for table e.t.c.
+7. Handle HTTP errors e.g. 500 - server error;  empty and invalid response, implement loading spinner for table e.t.c.
 8. Reqres API: 'https://reqres.in/api/users/users'; // added /users here to avoid actual GET request
    Use mock server for better simulation of GET, POST and PUT requests 
-   
+
 ## (Ideally) Link to to the hosted application
 ## (Optional) Link to other code you’re particularly proud of.
 1. https://github.com/cyril-ui-developer/react_redux_readable_app
