@@ -43,6 +43,8 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
+## The app is configured to work with mock server (json-server) as alternative to Reqres API. 
+To run using mock server, open a new terminal and execute 'npm run jsonserver'. Go to axiosClient.js in src/redux folder and change 'const JSON_BASE_URL = reqResAPI' to 'const JSON_BASE_URL = mockServer'. 
 
 ## Reasoning behind your technical choices.
 1. React is a popular JavaScript library for building user interfaces. React makes it painless to create interative UIs and it's  component-based. Implemented React to build stateful and stateless components.
@@ -51,13 +53,13 @@ The components are encapsulated and they manage their state. Component can be co
 3. Used Git hook with Husky - for every commit, the hooks will run eslint first, if there is/are no linting error(s), then commmit will pass else fail. Only properly linted code are pushed to the repository. 
 4. Redux-Thunk - Basic Redux store allows only simple synchronous updates. Redux-Thunk middleware extends the store and was used to write async logic that interacts with the store.
 5. Axios  - used Axios to make http requests. Prefeered Axios over native fetch() method because of it ability to perform automatic transforms of JSON data. Fetch() requires two-step process when handing JSON data.
-6. Jest and Enzyme are popular unit testing tools for React application
+6. Jest and Enzyme are popular unit testing tools for React application with smooth learning curve and great community support.
 
 ## Trade-offs you might have made, anything you left out, or what
 ##you might do differently if you were to spend additional time on the project.
 1. Improve user experience and interface - design high fidelity mockup, use Material-UI, CSS preprocessor like SSAS, cover all edge cases for form field validations, responsive design
 2. Implement React Router for component navigation
-3. Write more test cases
+3. Write more test cases, esp. for redux reducer and actions
 4. Middleware library - use Redux-saga instead of Redux-thunk to write asynchronous code that looks synchronous
 5. Reselect - use reselect, a memorized selector function for writing more concise logic
 6. Lodash - use lodash for utility tasks like object manipulation 
