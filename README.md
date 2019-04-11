@@ -60,18 +60,19 @@ The components are encapsulated and they manage their state. Component can be co
 ## Trade-offs you might have made, anything you left out, or what
 ##you might do differently if you were to spend additional time on the project.
 1. Improve user experience and interface - design high fidelity mockup; apply more CSS styles; use Material-UI; CSS preprocessor like SSAS; cover all edge cases for form field validations; design for mobile first and responsive design; implement loading spinner for table, implement confirm message for add/edit user
-2. Implement React Router for component navigation
-3. Write more test cases, esp. for redux reducer and actions
-4. Middleware library - use Redux-saga instead of Redux-thunk to write asynchronous code that looks synchronous
-5. Reselect - use reselect, a memorized selector function for writing more concise logic
-6. Lodash - use lodash for utility tasks like object manipulation 
-7. Handle HTTP errors e.g. 500 - server error;  empty and invalid response, 
-8. Reqres API: 'https://reqres.in/api/users/users'; // added /users here to avoid actual GET request
+2. Build more reusable components. Make userForm component resuable and configurable
+4. Implement React Router for component navigation
+5. Write more test cases, esp. for redux reducer and actions
+6. Middleware library - use Redux-saga instead of Redux-thunk to write asynchronous code that looks synchronous
+7. Reselect - use reselect, a memorized selector function for writing more concise logic
+8. Lodash - use lodash for utility tasks like object manipulation 
+9. Handle HTTP errors e.g. 500 - server error;  empty and invalid response, 
+10. Reqres API: 'https://reqres.in/api/users/users'; // added /users here to avoid actual GET request
    Use mock server for better simulation of GET, POST and PUT requests 
 
 ## (Ideally) Link to to the hosted application
  Hosting URL: https://simplereactapp-8d5e2.firebaseapp.com
- 
+
 ## (Optional) Link to other code you’re particularly proud of.
 1. https://github.com/cyril-ui-developer/react_redux_readable_app
 2. https://github.com/cyril-ui-developer/angular-space-launch-app
