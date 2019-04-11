@@ -8,7 +8,8 @@
 3. JavaScript/ES6 - Core language
 4. Redux - Predictable state management
 5. Axios - Promise based HTTP client for the browser and node.js
-6. This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+6. React Table - a lightweight, fast and extendable datagrid built for React
+7. This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 
 
@@ -53,7 +54,8 @@ The components are encapsulated and they manage their state. Component can be co
 3. Used Git hook with Husky - for every commit, the hooks will run eslint first, if there is/are no linting error(s), then commmit will pass else fail. Only properly linted code are pushed to the repository. 
 4. Redux-Thunk - Basic Redux store allows only simple synchronous updates. Redux-Thunk middleware extends the store and was used to write async logic that interacts with the store.
 5. Axios  - used Axios to make http requests. Prefeered Axios over native fetch() method because of it ability to perform automatic transforms of JSON data. Fetch() requires two-step process when handing JSON data.
-6. Jest and Enzyme are popular unit testing tools for React application with smooth learning curve and great community support.
+6. React Table - used React Table to achieve lightweight, fast and extendable datagrid
+7. Jest and Enzyme are popular unit testing tools for React application with smooth learning curve and great community support.
 
 ## Trade-offs you might have made, anything you left out, or what
 ##you might do differently if you were to spend additional time on the project.
