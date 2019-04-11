@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import LoadUsers from './containers/loadusers/loadUsers';
 import AddEditUser from './containers/adduser/addEditUser';
-import './App.css';
+import './app.css';
 
 class App extends Component {
   constructor(props) {
