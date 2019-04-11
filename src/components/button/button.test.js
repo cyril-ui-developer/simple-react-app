@@ -7,17 +7,21 @@ describe('Button', () => {
   it('should be defined', () => {
     expect(Button).toBeDefined();
   });
-  it('should render correctly', () => {
-    const tree = shallow(
+  it('should render name props correctly', () => {
+    const component = shallow(
       <Button name="button one" />,
     );
-    expect(tree).toMatchSnapshot();
+    expect(component).toMatchSnapshot();
+  });
+  it('should render value props correctly', () => {
+    const component = shallow(
+      <Button value="buttonone" />,
+    );
+    expect(component).toMatchSnapshot();
   });
 });
-it('should have a button value', () => {
-  // const tree = shallow(
-  //   <Button name='button one' />
-  // );
-//   expect(document.querySelector('input').this.props.name).toBe('string');
-//   expect(document.querySelector('input').props.value).toEqual('button one');
+it('should have a button required props - name and value', () => {
+  const component = shallow(<Button name="button one" value="buttonone" />);
+  expect(component.props().name).toBe('button one');
+  expect(component.props().value).toBe('buttonone');
 });

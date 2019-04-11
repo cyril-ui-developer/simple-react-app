@@ -7,7 +7,8 @@
 2. HTML5 / CSS3 - Page markup and styling
 3. JavaScript/ES6 - Core language
 4. Redux - Predictable state management
-3. This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+5. Axios - Promise based HTTP client for the browser and node.js
+6. This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 
 
@@ -49,11 +50,12 @@ The components are encapsulated and they manage their state. Component can be co
 2. Used ESLint to discover code problems without executing it. Created linting rules and formatters for coding standards and best practices. 
 3. Used Git hook with Husky - for every commit, the hooks will run eslint first, if there is/are no linting error(s), then commmit will pass else fail. Only properly linted code are pushed to the repository. 
 4. Redux-Thunk - Basic Redux store allows only simple synchronous updates. Redux-Thunk middleware extends the store and was used to write async logic that interacts with the store.
-5. Jest and Enzyme are popular unit testing tools for React application
+5. Axios  - used Axios to make http requests. Prefeered Axios over native fetch() method because of it ability to perform automatic transforms of JSON data. Fetch() requires two-step process when handing JSON data.
+6. Jest and Enzyme are popular unit testing tools for React application
 
 ## Trade-offs you might have made, anything you left out, or what
 ##you might do differently if you were to spend additional time on the project.
-1. Improve user experience and interface - design high fidelity mockup, use Material-UI and  CSS preprocessor like SSAS
+1. Improve user experience and interface - design high fidelity mockup, use Material-UI, CSS preprocessor like SSAS, cover all edge cases for form field validations, responsive design
 2. Implement React Router for component navigation
 3. Write more test cases
 4. Middleware library - use Redux-saga instead of Redux-thunk to write asynchronous code that looks synchronous

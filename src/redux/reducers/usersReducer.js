@@ -42,7 +42,6 @@ const loadUsersDataActionMap = {
     const { payload: { data } } = action;
     const id = 1;
     return {
-      userData: { 'data.id': id, ...data },
       ...state,
       usersData: [...state.usersData, { 'data.id': id, ...data }],
       loadingData: false,

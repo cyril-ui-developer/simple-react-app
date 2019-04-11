@@ -1,9 +1,10 @@
-// import React from 'react';
-// import ReactDOM from 'react-dom';
-// import App from './App';
+import React from 'react';
+import { shallow } from 'enzyme';
+import App from './App';
 
-// it('renders without crashing', () => {
-//   const div = document.createElement('main');
-//   ReactDOM.render(<App />, div);
-//   ReactDOM.unmountComponentAtNode(div);
-// });
+describe('<App />', () => {
+  it('render 1 <App /> component', () => {
+    const component = shallow(<App />);
+    expect(component).toHaveLength(1);
+  });
+});
