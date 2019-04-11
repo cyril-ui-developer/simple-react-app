@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-
 const Button = (props) => {
   const {
     disabled, value, name, handleClick,
@@ -9,7 +8,7 @@ const Button = (props) => {
   return (
     <input
       type="submit"
-      className=""
+      className="btn btn-primary"
       onClick={handleClick}
       disabled={disabled}
       value={value}

@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import Button from '../../components/button/button';
 import { required, renderField } from '../../utils/validations/formValidation';
 
+
 const UserForm = (props) => {
   const {
     handleSubmit, reset, submitting, pristine, highLevelEdu,

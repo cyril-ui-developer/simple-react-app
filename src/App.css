@@ -130,13 +130,7 @@ A module is a discrete, reusable component of the web page, such as the navigati
   text-decoration: none;
 }
 
-.header-primary {
-  background: #9b8579;
-  text-align: center;
-  padding-top: 18px;
-  padding-bottom: 18px;
-  margin-bottom: 40px;
-}
+
 
 @media (min-width: 48em) {
   .btn-primary {
@@ -156,17 +150,38 @@ A module is a discrete, reusable component of the web page, such as the navigati
     background: #8dc63f;
   }
 }
-/*Logo Modules*/
-.logo {
-  overflow: hidden;
-  display: inline-block;
+/*Form Modules*/
+input[type=text] {
+  width: 100%;
+  padding: 8px 10px;
+  margin: 8px 0;
+  box-sizing: border-box;
 }
-.logo-primary {
-  width: 64px;
-  height: 64px;
+select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
 }
-.logo-primary img {
-  height: 100%;
+.error{
+  color:red;
+}
+/* Header Module */
+.header-primary {
+  background: #9b8579;
+  text-align: center;
+  padding-top: 18px;
+  padding-bottom: 18px;
+  margin-bottom: 40px;
+}
+/* Footer Module */
+.footer-primary {
+  background: #e7e1d7;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 18px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 /*Navigation Modules*/
@@ -204,19 +219,7 @@ A module is a discrete, reusable component of the web page, such as the navigati
   min-width: 100%;
 }
 
-/*Media Object Module*/
-.media,
-.media-body {
-  overflow: hidden;
-}
-.media-item {
-  float: left;
-  margin-right: 10px;
-}
-.media-item i {
-  color: #594a42;
-  font-size: 5em;
-}
+
 /***************************
 ****************************
 Theme Styles

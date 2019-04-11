@@ -26,6 +26,24 @@ class App extends Component {
           <div className="container">
             <div className="row">
               <div className="col-1-3 pull-right-sm">
+                <h4>
+
+User Add/Edit Form
+                </h4>
+
+              </div>
+              <div className="col-2-3">
+                <h4>
+              User Data Table
+                </h4>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <div className="container">
+            <div className="row">
+              <div className="col-1-3 pull-right-sm">
                 <AddEditUser userData={userData} />
               </div>
               <div className="col-2-3">
@@ -34,6 +52,7 @@ class App extends Component {
             </div>
           </div>
         </section>
+        <header className="footer-primary">...</header>
       </main>
     );
   }

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export const required = value => (value ? undefined : 'Please enter a value');
+export const required = value => (value ? undefined : <span className="error">Please enter a value</span>);
 
 export const renderField = ({
   input, label, type, meta: { touched, error, warning },

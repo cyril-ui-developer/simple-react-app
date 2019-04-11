@@ -67,9 +67,6 @@ render() {
 
   return (
     <Fragment>
-      <header>
-        <h3> User Form</h3>
-      </header>
       <UserFormWrapped
         enableReinitialize
         onSubmit={values => this.actionsUser(userData.id, values)}
