@@ -70,6 +70,8 @@ The components are encapsulated and they manage their state. Component can be co
    Use mock server for better simulation of GET, POST and PUT requests 
 
 ## (Ideally) Link to to the hosted application
+ Hosting URL: https://simplereactapp-8d5e2.firebaseapp.com
+ 
 ## (Optional) Link to other code you’re particularly proud of.
 1. https://github.com/cyril-ui-developer/react_redux_readable_app
 2. https://github.com/cyril-ui-developer/angular-space-launch-app
