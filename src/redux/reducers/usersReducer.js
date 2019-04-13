@@ -40,10 +40,10 @@ const loadUsersDataActionMap = {
   }),
   [ADD_USER_DATA + SUCCESS]: (state, action) => {
     const { payload: { data } } = action;
-    const id = 1;
     return {
       ...state,
-      usersData: [...state.usersData, { 'data.id': id, ...data }],
+      // userData: data,
+      usersData: [...state.usersData, data],
       loadingData: false,
     };
   },
@@ -62,6 +62,18 @@ const loadUsersDataActionMap = {
     return {
       ...state,
       usersData: state.usersData.map(d => (d.id === data.id ? data : d)),
+      loadingData: false,
+    };
+  },
+
+  // Fetch post
+  EDIT_POST: (state, action) => {
+    const { data } = action;
+
+    return {
+      ...state,
+      userData: data,
+
       loadingData: false,
     };
   },

@@ -19,13 +19,12 @@ UserFormWrapped = connect(
     const highLevelEdu = selector(state, 'highledu');
     return {
       highLevelEdu,
-
     };
   },
 )(UserFormWrapped);
 
 const mapStateToProps = state => ({
-  reducerData: state.addUserReducer,
+  reducedData: state.usersReducer.userData,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -38,14 +37,14 @@ class AddEditUser extends Component {
   static propTypes = {
     actionAddUsers: PropTypes.func,
     reducerData: PropTypes.shape({}),
-    userData: PropTypes.shape({}),
+    reducedData: PropTypes.shape({}),
     actionEditUsers: PropTypes.func,
   }
 
   static defaultProps = {
     reducerData: {},
     actionAddUsers: {},
-    userData: {},
+    reducedData: {},
     actionEditUsers: {},
   };
 
@@ -53,7 +52,7 @@ actionsUser =(id, values) => {
   const {
     actionAddUsers, actionEditUsers,
   } = this.props;
-  if (id) {
+  if (id._original !== undefined) {
     actionEditUsers(values);
   } else {
     actionAddUsers(values);
@@ -62,15 +61,15 @@ actionsUser =(id, values) => {
 
 render() {
   const {
-    userData,
+    reducedData,
   } = this.props;
 
   return (
     <Fragment>
       <UserFormWrapped
         enableReinitialize
-        onSubmit={values => this.actionsUser(userData.id, values)}
-        initialValues={userData}
+        onSubmit={values => this.actionsUser(reducedData, values)}
+        initialValues={reducedData._original}
       />
     </Fragment>
   );

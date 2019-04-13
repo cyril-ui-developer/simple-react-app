@@ -15,19 +15,20 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   actionLoadUsers: () => dispatch(loadUsersData()),
+  fetchUser: data => dispatch({ type: 'FETCH_USER', data }),
 });
 
 class LoadUsers extends Component {
     static propTypes = {
-      reducerData: PropTypes.shape({}),
+      reduceDData: PropTypes.shape({}),
       actionLoadUsers: PropTypes.func.isRequired,
       reducedUsersData: PropTypes.shape({}),
-      userData: PropTypes.func,
+      fetchUser: PropTypes.func,
     }
 
     static defaultProps = {
-      reducerData: {},
-      userData: () => {},
+      reduceDData: {},
+      fetchUser: () => {},
       reducedUsersData: {},
     };
 
@@ -43,13 +44,9 @@ class LoadUsers extends Component {
       actionLoadUsers();
     }
 
-    updateUser(row) {
-      const { userData } = this.props;
-      userData(row);
-    }
 
     render() {
-      const { reducedUsersData } = this.props;
+      const { reducedUsersData, fetchUser } = this.props;
 
       const columns = [{
         Header: 'First name',
@@ -70,13 +67,20 @@ class LoadUsers extends Component {
         filterable: false,
         width: 100,
         accessor: '_links.self.href',
-        Cell: ({ value, row }) => (
-          <Button value="Edit" name="edit" handleClick={() => { this.updateUser(row, value); }} />
+        Cell: ({ row }) => (
+          // <Button className="btn" value="Edit" name="editbutton" handleClick={() =>
+          // { this.updateUser(row, value); _original.id}} />
+          <Button className="btn" value="Edit" name="editbutton" handleClick={() => fetchUser(row)} />
+
+          //  ()=>this.props.dispatch({type:'EDIT_POST',id:this.props.post.id})
         ),
       },
       ];
 
       return (
+      // <div>
+      //       { JSON.stringify(reducedUsersData) }
+      //   </div>
         <ReactTable
           data={reducedUsersData.usersData}
           columns={columns}
