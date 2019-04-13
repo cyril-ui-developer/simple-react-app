@@ -1,5 +1,5 @@
 import {
-  LOAD_USER_DATA, ADD_USER_DATA, EDIT_USER_DATA, PENDING, SUCCESS, FAIL,
+  LOAD_USER_DATA, ADD_USER_DATA, FETCH_USER_DATA, EDIT_USER_DATA, PENDING, SUCCESS, FAIL,
 } from '../constants';
 
 export const initialState = {
@@ -48,6 +48,19 @@ const loadUsersDataActionMap = {
     };
   },
 
+  // Fetch post
+  [FETCH_USER_DATA]: (state, action) => {
+    const { data } = action;
+
+    return {
+      ...state,
+      userData: data,
+
+      loadingData: false,
+    };
+  },
+
+
   /* Edit user */
   [EDIT_USER_DATA + PENDING]: state => ({
     ...state,
@@ -62,18 +75,6 @@ const loadUsersDataActionMap = {
     return {
       ...state,
       usersData: state.usersData.map(d => (d.id === data.id ? data : d)),
-      loadingData: false,
-    };
-  },
-
-  // Fetch post
-  EDIT_POST: (state, action) => {
-    const { data } = action;
-
-    return {
-      ...state,
-      userData: data,
-
       loadingData: false,
     };
   },

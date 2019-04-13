@@ -7,6 +7,7 @@ import 'react-table/react-table.css';
 
 import loadUsersData from '../../redux/actions/loadUsers';
 import Button from '../../components/button/button';
+import { FETCH_USER_DATA } from '../../redux/constants';
 
 
 const mapStateToProps = state => ({
@@ -15,7 +16,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   actionLoadUsers: () => dispatch(loadUsersData()),
-  fetchUser: data => dispatch({ type: 'FETCH_USER', data }),
+  fetchUser: data => dispatch({ type: FETCH_USER_DATA, data }),
 });
 
 class LoadUsers extends Component {
