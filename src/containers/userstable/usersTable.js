@@ -19,25 +19,17 @@ const mapDispatchToProps = dispatch => ({
   fetchUser: data => dispatch({ type: FETCH_USER_DATA, data }),
 });
 
-class LoadUsers extends Component {
+class UsersTable extends Component {
     static propTypes = {
-      reduceDData: PropTypes.shape({}),
       actionLoadUsers: PropTypes.func.isRequired,
       reducedUsersData: PropTypes.shape({}),
       fetchUser: PropTypes.func,
     }
 
     static defaultProps = {
-      reduceDData: {},
       fetchUser: () => {},
       reducedUsersData: {},
     };
-
-    constructor(props) {
-      super(props);
-
-      this.state = {};
-    }
 
     componentDidMount = () => {
       const { actionLoadUsers } = this.props;
@@ -69,19 +61,12 @@ class LoadUsers extends Component {
         width: 100,
         accessor: '_links.self.href',
         Cell: ({ row }) => (
-          // <Button className="btn" value="Edit" name="editbutton" handleClick={() =>
-          // { this.updateUser(row, value); _original.id}} />
           <Button className="btn" value="Edit" name="editbutton" handleClick={() => fetchUser(row)} />
-
-          //  ()=>this.props.dispatch({type:'EDIT_POST',id:this.props.post.id})
         ),
       },
       ];
 
       return (
-      // <div>
-      //       { JSON.stringify(reducedUsersData) }
-      //   </div>
         <ReactTable
           data={reducedUsersData.usersData}
           columns={columns}
@@ -91,4 +76,4 @@ class LoadUsers extends Component {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(LoadUsers);
+export default connect(mapStateToProps, mapDispatchToProps)(UsersTable);
