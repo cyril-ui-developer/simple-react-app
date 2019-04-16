@@ -11,15 +11,15 @@ export const initialState = {
 const loadUsersDataActionMap = {
 
   /* Load users */
-  [LOAD_USER_DATA + PENDING]: state => ({
+  [`${LOAD_USER_DATA}${PENDING}`]: state => ({
     ...state,
     loadingData: true,
   }),
-  [LOAD_USER_DATA + FAIL]: state => ({
+  [`${LOAD_USER_DATA}${FAIL}`]: state => ({
     ...state,
     loadingData: false,
   }),
-  [LOAD_USER_DATA + SUCCESS]: (state, action) => {
+  [`${LOAD_USER_DATA}${SUCCESS}`]: (state, action) => {
     const { payload: { data } } = action;
 
     return {
@@ -30,15 +30,15 @@ const loadUsersDataActionMap = {
   },
 
   /* Add user */
-  [ADD_USER_DATA + PENDING]: state => ({
+  [`${ADD_USER_DATA}${PENDING}`]: state => ({
     ...state,
     loadingData: true,
   }),
-  [ADD_USER_DATA + FAIL]: state => ({
+  [`${ADD_USER_DATA}${FAIL}`]: state => ({
     ...state,
     loadingData: false,
   }),
-  [ADD_USER_DATA + SUCCESS]: (state, action) => {
+  [`${ADD_USER_DATA}${SUCCESS}`]: (state, action) => {
     const { payload: { data } } = action;
     return {
       ...state,
@@ -49,7 +49,7 @@ const loadUsersDataActionMap = {
   },
 
   // Fetch post
-  [FETCH_USER_DATA]: (state, action) => {
+  [`${FETCH_USER_DATA}`]: (state, action) => {
     const { data } = action;
 
     return {
@@ -62,15 +62,15 @@ const loadUsersDataActionMap = {
 
 
   /* Edit user */
-  [EDIT_USER_DATA + PENDING]: state => ({
+  [`${EDIT_USER_DATA}${PENDING}`]: state => ({
     ...state,
     loadingData: true,
   }),
-  [EDIT_USER_DATA + FAIL]: state => ({
+  [`${EDIT_USER_DATA}${FAIL}`]: state => ({
     ...state,
     loadingData: false,
   }),
-  [EDIT_USER_DATA + SUCCESS]: (state, action) => {
+  [`${EDIT_USER_DATA}${SUCCESS}`]: (state, action) => {
     const { payload: { data } } = action;
     return {
       ...state,
