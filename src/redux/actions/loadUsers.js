@@ -6,7 +6,7 @@ const loadUsersData = () => ({
     client: 'default',
     request: {
       method: 'GET',
-      url: 'users/users', // added /users here to handle actual GET request, remove /users to use mock server
+      url: 'users', // added /users here to handle actual GET request, remove /users to use mock server
     },
   },
 });

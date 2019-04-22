@@ -1,3 +1,5 @@
+// @flow
+
 import React, { Component } from 'react';
 import {
   Route, Redirect, Switch,
@@ -7,7 +9,12 @@ import UsersDashboard from './containers/usersdashboard/usersDashboard';
 import PageNotFound from './components/pagenotfound/pageNotFound';
 import './app.css';
 
-class App extends Component {
+
+type TextProps = {
+
+}
+
+class App extends Component <TextProps> {
   render() {
     return (
       <main>

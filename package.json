@@ -26,7 +26,8 @@
     "fix": "eslint src --fix",
     "lint": "eslint src",
     "precommit": "yarn run lint",
-    "jsonserver": "json-server --watch db.json"
+    "jsonserver": "json-server --watch db.json",
+    "flow": "flow"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -45,6 +46,7 @@
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-react": "^7.12.4",
+    "flow-bin": "^0.97.0",
     "husky": "^1.3.1"
   }
 }

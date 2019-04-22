@@ -1,0 +1,21 @@
+[ignore]
+   .*/node_modules/.*
+    .*/src/registerServiceWorker\.js
+    .*/src/index\.js
+    .*\.test\.js
+    .*/build/.*
+    .*/coverage/.*
+    .*/.firebase/.*
+    .*/db/.*
+    
+
+[include]
+
+[libs]
+
+[lints]
+
+[options]
+  all=true
+
+[strict]
