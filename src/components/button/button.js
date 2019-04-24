@@ -5,13 +5,13 @@ import './button.css';
 
 const Button = (props) => {
   const {
-    disabled, value, name, handleClick, className,
+    disabled, value, name, onHandleClick, className,
   } = props;
   return (
     <input
       type="submit"
       className={className}
-      onClick={handleClick}
+      onClick={onHandleClick}
       disabled={disabled}
       value={value}
       name={name}
@@ -20,7 +20,7 @@ const Button = (props) => {
   );
 };
 Button.propTypes = {
-  handleClick: PropTypes.func,
+  onHandleClick: PropTypes.func,
   value: PropTypes.string.isRequired,
   disabled: PropTypes.bool,
   name: PropTypes.string.isRequired,
@@ -28,7 +28,7 @@ Button.propTypes = {
 };
 
 Button.defaultProps = {
-  handleClick: () => {},
+  onHandleClick: () => {},
   disabled: false,
   className: 'btn',
 };

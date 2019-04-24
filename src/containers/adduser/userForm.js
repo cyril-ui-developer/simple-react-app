@@ -2,7 +2,7 @@ import React from 'react';
 import { Field } from 'redux-form';
 import PropTypes from 'prop-types';
 
-import Button from '../../components/button/button';
+import Button from '../../components/button';
 import { required, renderField } from '../../utils/validations/formValidation';
 
 
@@ -84,7 +84,7 @@ const UserForm = (props) => {
       <div>
 
         <Button className="btn btn-primary" value="Submit" name="submit" disabled={pristine || submitting} />
-        <Button className="btn" value="Clear" name="reset" disabled={pristine || submitting} handleClick={reset} />
+        <Button className="btn" value="Clear" name="reset" disabled={pristine || submitting} onHandleClick={reset} />
       </div>
     </form>
   );

@@ -2,7 +2,8 @@ import React, { Component, Fragment } from 'react';
 import UsersTable from '../userstable/usersTable';
 import AddEditUser from '../adduser/addEditUser';
 
-class UsersDashboard extends Component {
+
+class UsersDashboard extends Component<{}> {
   render() {
     return (
       <Fragment>
@@ -26,6 +27,7 @@ class UsersDashboard extends Component {
               </div>
               <div className="col-2-3">
                 <UsersTable />
+
               </div>
             </div>
           </div>

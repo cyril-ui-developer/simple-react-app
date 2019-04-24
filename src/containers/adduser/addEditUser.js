@@ -50,9 +50,10 @@ class AddEditUser extends Component {
 
 actionsUser =(id, values) => {
   const {
-    actionAddUsers, actionEditUsers,
+    actionAddUsers, actionEditUsers, reducedData,
   } = this.props;
-  if (id._original !== undefined) {
+
+  if (reducedData.id !== undefined) {
     actionEditUsers(values);
   } else {
     actionAddUsers(values);
@@ -69,7 +70,7 @@ render() {
       <UserFormWrapped
         enableReinitialize
         onSubmit={values => this.actionsUser(reducedData, values)}
-        initialValues={reducedData._original}
+        initialValues={reducedData}
       />
     </Fragment>
   );
