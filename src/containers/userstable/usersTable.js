@@ -2,8 +2,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-// import ReactTable from 'react-table';
-import 'react-table/react-table.css';
+
 
 import loadUsersData from '../../redux/actions/loadUsers';
 import { FETCH_USER_DATA } from '../../redux/constants';
@@ -24,6 +23,7 @@ class UsersTable extends Component<{}> {
       actionLoadUsers: PropTypes.func.isRequired,
       reducedUsersData: PropTypes.shape({}),
       fetchUser: PropTypes.func,
+      catchVal: PropTypes.func.isRequired,
     }
 
     static defaultProps = {
@@ -37,6 +37,10 @@ class UsersTable extends Component<{}> {
       actionLoadUsers();
     }
 
+    newFuc =(e) => {
+      const { catchVal } = this.props;
+      catchVal(e);
+    }
 
     render() {
       const { reducedUsersData, fetchUser } = this.props;
@@ -45,9 +49,12 @@ class UsersTable extends Component<{}> {
         <DataTable
           rows={reducedUsersData.usersData}
           page={0}
-          rowsPerPage={5}
-          rowsHeading={['Firstname', 'Lastname', 'Phoone no.', 'Actions']}
-          handleClick={row => fetchUser(row)}
+          rowsPerPage={10}
+          rowsHeading={['Firstname', 'Lastname', 'Phoone no.', 'Action']}
+          handleClick={(row) => {
+            fetchUser(row);
+            this.newFuc('true');
+          }}
 
         />
       );

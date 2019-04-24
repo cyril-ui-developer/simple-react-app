@@ -38,6 +38,16 @@ const CustomTableCell = withStyles(theme => ({
 }))(TableCell);
 
 class DataTable extends React.Component<{}> {
+  static propTypes = {
+    classes: PropTypes.shape({}).isRequired,
+    page: PropTypes.number.isRequired,
+    rowsPerPage: PropTypes.number.isRequired,
+    rowsHeading: PropTypes.arrayOf(PropTypes.string).isRequired,
+    handleClick: PropTypes.func.isRequired,
+    rows: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+
+  };
+
   constructor(props) {
     super(props);
     const { page, rowsPerPage } = this.props;
@@ -46,7 +56,6 @@ class DataTable extends React.Component<{}> {
       rowsPerPage,
     };
   }
-
 
   handleChangePage = (event, page) => {
     this.setState({ page });
@@ -80,7 +89,16 @@ class DataTable extends React.Component<{}> {
                   <TableCell>{row.firstname}</TableCell>
                   <TableCell>{row.lastname}</TableCell>
                   <TableCell>{row.phone}</TableCell>
-                  <TableCell><Button className="btn" value="Edit" name="editbutton" onHandleClick={() => handleClick(row)} /></TableCell>
+                  {/* <TableCell><Button className="btn" value="Edit"
+                name="editbutton" onHandleClick={() => handleClick(row)} /></TableCell> */}
+                  <TableCell>
+                    <Button
+                      className="btn"
+                      value="Detail"
+                      name="detailbutton"
+                      onHandleClick={() => handleClick(row)}
+                    />
+                  </TableCell>
                 </TableRow>
               ))}
               {emptyRows > 0 && (
@@ -93,7 +111,7 @@ class DataTable extends React.Component<{}> {
             <TableFooter>
               <TableRow>
                 <TablePagination
-                  rowsPerPageOptions={[5, 10, 25]}
+                  rowsPerPageOptions={[10, 15, 20, 25, 50]}
                   colSpan={3}
                   count={rows.length}
                   rowsPerPage={rowsPerPage}
@@ -114,14 +132,5 @@ class DataTable extends React.Component<{}> {
   }
 }
 
-DataTable.propTypes = {
-  classes: PropTypes.shape({}).isRequired,
-  page: PropTypes.number.isRequired,
-  rowsPerPage: PropTypes.number.isRequired,
-  rowsHeading: PropTypes.arrayOf.isRequired,
-  handleClick: PropTypes.func.isRequired,
-  rows: PropTypes.shape({}).isRequired,
-
-};
 
 export default withStyles(styles)(DataTable);
