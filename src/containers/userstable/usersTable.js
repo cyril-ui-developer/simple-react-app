@@ -23,7 +23,7 @@ class UsersTable extends Component<{}> {
       actionLoadUsers: PropTypes.func.isRequired,
       reducedUsersData: PropTypes.shape({}),
       fetchUser: PropTypes.func,
-      catchVal: PropTypes.func.isRequired,
+      onDetailClick: PropTypes.func.isRequired,
     }
 
     static defaultProps = {
@@ -37,9 +37,9 @@ class UsersTable extends Component<{}> {
       actionLoadUsers();
     }
 
-    newFuc =(e) => {
-      const { catchVal } = this.props;
-      catchVal(e);
+    detailClick =() => {
+      const { onDetailClick } = this.props;
+      onDetailClick();
     }
 
     render() {
@@ -53,7 +53,7 @@ class UsersTable extends Component<{}> {
           rowsHeading={['Firstname', 'Lastname', 'Phoone no.', 'Action']}
           handleClick={(row) => {
             fetchUser(row);
-            this.newFuc('true');
+            this.detailClick();
           }}
 
         />

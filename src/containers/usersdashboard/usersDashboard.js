@@ -7,47 +7,47 @@ import Button from '../../components/button';
 
 class UsersDashboard extends Component<{}> {
   state={
-    openForm: false,
+    openDefault: true,
+    openAdd: false,
     openView: false,
     openEdit: false,
   }
 
-  handleClick = () => {
-    this.setState({
-      openForm: true,
-      openView: false,
-      openEdit: false,
-    });
-  }
-
-  handleCloseClick = () => {
-    this.setState({
-      openView: false,
-      openForm: false,
-      openEdit: false,
-    });
-  }
-
-  valNew = (e) => {
-    if (e === 'true') {
+  handleOpenClick = (value) => {
+    if (value === 'openAdd') {
+      this.setState({
+        openAdd: true,
+        openView: false,
+        openEdit: false,
+        openDefault: false,
+      });
+    } else if (value === 'openView') {
       this.setState({
         openView: true,
-        openForm: false,
+        openAdd: false,
         openEdit: false,
+        openDefault: false,
+      });
+    } else if (value === 'openEdit') {
+      this.setState({
+        openEdit: true,
+        openView: false,
+        openAdd: false,
+      });
+    } else {
+      this.setState({
+        openView: false,
+        openAdd: false,
+        openEdit: false,
+        openDefault: true,
       });
     }
   }
 
-  handleEditClick =() => {
-    this.setState({
-      openEdit: true,
-      openView: false,
-      openForm: false,
-    });
-  }
-
   render() {
-    const { openForm, openView, openEdit } = this.state;
+    const {
+      openDefault, openAdd, openView, openEdit,
+    } = this.state;
 
     return (
       <Fragment>
@@ -55,7 +55,7 @@ class UsersDashboard extends Component<{}> {
           <div className="container">
             <div className="row">
               <div className="col-1-3 pull-right-sm">
-                <h4>User Detail </h4>
+                <h4>Actions View </h4>
               </div>
               <div className="col-2-3">
                 <h4>User Data Table </h4>
@@ -67,14 +67,28 @@ class UsersDashboard extends Component<{}> {
           <div className="container">
             <div className="row">
               <div className="col-1-3 pull-right-sm">
-
-                {openForm && (
+                {openDefault && (
+                <section>
+                  <header>
+                    <h4>Clcik an action to view, add or edit user</h4>
+                  </header>
+                  <article>
+                  Lorem ipsum dolor sit amet, sea ea eros perpetua, est ea
+                  quisquod nibh. Sit esse graeci nemore ne, an dicat solet
+                  quaeque mei. Sale audiam in duo, ei ridens probatus petentium pri.
+                  Eripuit epicuri pri no, ne vel erant verterem.
+                  No mei singulis accusamus, ea hinc nusquam ius,
+                   pri urbanitas contentiones ad.
+                  </article>
+                </section>
+                )}
+                {openAdd && (
                   <div>
                     <Button
-                      className="btn btn-primary"
+                      className="btn"
                       value="Close"
                       name="adduser"
-                      onHandleClick={this.handleCloseClick}
+                      onHandleClick={() => this.handleOpenClick('')}
                     />
                     <AddUser />
                   </div>
@@ -86,13 +100,13 @@ class UsersDashboard extends Component<{}> {
                       className="btn btn-primary"
                       value="Edit User"
                       name="edituser"
-                      onHandleClick={this.handleEditClick}
+                      onHandleClick={() => this.handleOpenClick('openEdit')}
                     />
                     <Button
-                      className="btn btn-primary"
+                      className="btn"
                       value="Close"
                       name="adduser"
-                      onHandleClick={this.handleCloseClick}
+                      onHandleClick={() => this.handleOpenClick('')}
                     />
                     <ViewTableRowDetail />
                   </div>
@@ -104,22 +118,21 @@ class UsersDashboard extends Component<{}> {
                         className="btn"
                         value="Close"
                         name="adduser"
-                        onHandleClick={this.handleCloseClick}
+                        onHandleClick={() => this.handleOpenClick('')}
                       />
                       <EditUser />
                     </div>
-
                   )
                 }
               </div>
               <div className="col-2-3">
-                <UsersTable catchVal={e => this.valNew(e)} />
+                <UsersTable onDetailClick={() => this.handleOpenClick('openView')} />
                 <div>
                   <Button
                     className="btn btn-primary"
                     value="Add New User"
                     name="adduser"
-                    onHandleClick={this.handleClick}
+                    onHandleClick={() => this.handleOpenClick('openAdd')}
                   />
                 </div>
               </div>
