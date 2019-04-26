@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 
 import ViewTableRowDetail from '../../components/viewtablerowdetail';
 
-
 const mapStateToProps = state => ({
   reducedData: state.usersReducer.userData,
 });
@@ -14,9 +13,7 @@ class ViewUserDetail extends Component<{}> {
       reducedData: PropTypes.shape({}).isRequired,
     }
 
-    static defaultProps = {
-    }
-
+    static defaultProps = {}
 
     render() {
       const { reducedData } = this.props;
@@ -28,28 +25,32 @@ class ViewUserDetail extends Component<{}> {
         {
           label: 'Lastname: ',
           value: 'lastname',
-        }, {
+        },
+        {
           label: 'Date of Birth: ',
           value: 'dob',
-        },
-        {
-          label: 'Age: ',
-          value: 'age',
         }, {
-          label: 'Height: ',
-          value: 'height',
-        },
-        {
           label: 'Address: ',
           value: 'address',
-        }, {
+        },
+        {
           label: 'Phone Number: ',
           value: 'phone',
         },
         {
+          label: 'Email: ',
+          value: 'email',
+        },
+        {
+          label: 'Height: ',
+          value: 'height',
+        },
+
+        {
           label: 'Highest Level Education: ',
           value: 'highledu',
-        }, {
+        },
+        {
           label: 'Degree: ',
           value: 'degree',
         },
@@ -64,6 +65,4 @@ class ViewUserDetail extends Component<{}> {
     }
 }
 
-export default connect(
-  mapStateToProps,
-)(ViewUserDetail);
+export default connect(mapStateToProps)(ViewUserDetail);

@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 import Button from '../../components/button';
 import { required, renderField } from '../../utils/validations/formValidation';
 
-
 const UserForm = (props) => {
   const {
     handleSubmit, reset, submitting, pristine, highLevelEdu,
@@ -28,10 +27,10 @@ const UserForm = (props) => {
         validate={required}
       />
       <Field
-        name="phone"
+        name="dob"
         type="text"
         component={renderField}
-        label="Phone number"
+        label="Date of Birth"
         validate={required}
       />
       <Field
@@ -42,17 +41,19 @@ const UserForm = (props) => {
         validate={required}
       />
       <Field
-        name="dob"
+        name="phone"
         type="text"
         component={renderField}
-        label="Date of Birth"
+        label="Phone number"
         validate={required}
       />
+
       <Field
-        name="age"
+        name="email"
         type="text"
         component={renderField}
-        label="Age"
+        label="email"
+        validate={required}
       />
       <Field
         name="height"
@@ -73,18 +74,23 @@ const UserForm = (props) => {
         <option value="Master's degree">Master</option>
       </Field>
       {highLevelEdu && (
-      <Field
-        name="degree"
-        type="text"
-        component={renderField}
-        label="Degree Obtained"
-      />
+        <Field name="degree" type="text" component={renderField} label="Degree Obtained" />
       )}
 
       <div>
-
-        <Button className="btn btn-primary" value="Submit" name="submit" disabled={pristine || submitting} />
-        <Button className="btn" value="Clear" name="reset" disabled={pristine || submitting} onHandleClick={reset} />
+        <Button
+          className="btn btn-primary"
+          value="Submit"
+          name="submit"
+          disabled={pristine || submitting}
+        />
+        <Button
+          className="btn"
+          value="Clear"
+          name="reset"
+          disabled={pristine || submitting}
+          onHandleClick={reset}
+        />
       </div>
     </form>
   );
@@ -96,7 +102,6 @@ UserForm.propTypes = {
   reset: PropTypes.func,
   submitting: PropTypes.bool,
   highLevelEdu: PropTypes.string,
-
 };
 
 UserForm.defaultProps = {
@@ -105,8 +110,6 @@ UserForm.defaultProps = {
   reset: () => {},
   submitting: false,
   highLevelEdu: '',
-
 };
-
 
 export default UserForm;

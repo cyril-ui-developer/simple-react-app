@@ -84,11 +84,12 @@ class DataTable extends React.Component<{}> {
               </TableRow>
             </TableHead>
             <TableBody>
+              {/* data row should be use dynamic to make it reusable */}
               {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map(row => (
                 <TableRow key={row.id}>
                   <TableCell>{row.firstname}</TableCell>
                   <TableCell>{row.lastname}</TableCell>
-                  <TableCell>{row.phone}</TableCell>
+                  <TableCell>{row.dob}</TableCell>
                   <TableCell>
                     <Button
                       className="btn"

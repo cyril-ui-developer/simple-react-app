@@ -30,7 +30,6 @@ const mapDispatchToProps = dispatch => ({
 
 class EditUser extends Component<{}> {
     static propTypes = {
-      reducerData: PropTypes.shape({}).isRequired,
       reducedData: PropTypes.shape({}).isRequired,
       actionEditUser: PropTypes.func.isRequired,
       onHandleConfirmClick: PropTypes.func.isRequired,

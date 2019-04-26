@@ -50,7 +50,7 @@ class UsersTable extends Component<{}> {
           rows={reducedUsersData.usersData}
           page={0}
           rowsPerPage={10}
-          rowsHeading={['Firstname', 'Lastname', 'Phoone no.', 'Action']}
+          rowsHeading={['Firstname', 'Lastname', 'Date of Birth', 'Action']}
           handleClick={(row) => {
             fetchUser(row);
             this.detailClick();
