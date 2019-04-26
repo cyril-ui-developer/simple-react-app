@@ -1,9 +1,11 @@
 import React, { Component, Fragment } from 'react';
+
 import UsersTable from '../userstable/usersTable';
 import AddUser from '../adduser/addUser';
 import EditUser from '../adduser/editUser';
 import ViewTableRowDetail from '../userstable/ViewUserDetail';
 import Button from '../../components/button';
+import DeleteUser from '../adduser/deleteUser';
 
 class UsersDashboard extends Component<{}> {
   state={
@@ -11,6 +13,8 @@ class UsersDashboard extends Component<{}> {
     openAdd: false,
     openView: false,
     openEdit: false,
+    openConfirm: false,
+    openDel: false,
   }
 
   handleOpenClick = (value) => {
@@ -20,6 +24,8 @@ class UsersDashboard extends Component<{}> {
         openView: false,
         openEdit: false,
         openDefault: false,
+        openConfirm: false,
+        openDel: false,
       });
     } else if (value === 'openView') {
       this.setState({
@@ -27,12 +33,24 @@ class UsersDashboard extends Component<{}> {
         openAdd: false,
         openEdit: false,
         openDefault: false,
+        openConfirm: false,
+        openDel: false,
       });
     } else if (value === 'openEdit') {
       this.setState({
         openEdit: true,
         openView: false,
         openAdd: false,
+        openConfirm: false,
+        openDel: false,
+      });
+    } else if (value === 'openDel') {
+      this.setState({
+        openEdit: false,
+        openView: false,
+        openAdd: false,
+        openConfirm: false,
+        openDel: true,
       });
     } else {
       this.setState({
@@ -40,15 +58,25 @@ class UsersDashboard extends Component<{}> {
         openAdd: false,
         openEdit: false,
         openDefault: true,
+        openConfirm: false,
+        openDel: false,
       });
     }
   }
 
+  handleConfirmClick =() => {
+    this.setState({
+      openConfirm: true,
+      openAdd: false,
+      openEdit: false,
+      openDel: false,
+    });
+  }
+
   render() {
     const {
-      openDefault, openAdd, openView, openEdit,
+      openDefault, openAdd, openView, openEdit, openConfirm, openDel,
     } = this.state;
-
     return (
       <Fragment>
         <section>
@@ -84,18 +112,21 @@ class UsersDashboard extends Component<{}> {
                 )}
                 {openAdd && (
                   <div>
+                    <h5>Add New User</h5>
                     <Button
                       className="btn"
                       value="Close"
                       name="adduser"
                       onHandleClick={() => this.handleOpenClick('')}
                     />
-                    <AddUser />
+                    {/* <AddUser /> */}
+                    <AddUser onHandleConfirmClick={e => this.handleConfirmClick(e)} />
                   </div>
                 ) }
 
                 {openView && (
                   <div>
+                    <h5>User Detail</h5>
                     <Button
                       className="btn btn-primary"
                       value="Edit User"
@@ -103,9 +134,15 @@ class UsersDashboard extends Component<{}> {
                       onHandleClick={() => this.handleOpenClick('openEdit')}
                     />
                     <Button
+                      className="btn btn-primary"
+                      value="Delete User"
+                      name="deleteuser"
+                      onHandleClick={() => this.handleOpenClick('openDel')}
+                    />
+                    <Button
                       className="btn"
                       value="Close"
-                      name="adduser"
+                      name="close"
                       onHandleClick={() => this.handleOpenClick('')}
                     />
                     <ViewTableRowDetail />
@@ -114,16 +151,41 @@ class UsersDashboard extends Component<{}> {
                 {
                   openEdit && (
                     <div>
+                      <h5>Edit User</h5>
                       <Button
                         className="btn"
                         value="Close"
                         name="adduser"
                         onHandleClick={() => this.handleOpenClick('')}
                       />
-                      <EditUser />
+                      <EditUser onHandleConfirmClick={e => this.handleConfirmClick(e)} />
                     </div>
                   )
                 }
+                {openDel && (
+                <div>
+                  <h5>Confirm Delete User</h5>
+                  <Button
+                    className="btn"
+                    value="Close"
+                    name="close"
+                    onHandleClick={() => this.handleOpenClick('')}
+                  />
+                  <DeleteUser onHandleConfirmClick={e => this.handleConfirmClick(e)} />
+                </div>
+                )}
+                {openConfirm && (
+                  <div>
+                    <h5>Confirmation</h5>
+                    <p>Action was performed successfully.</p>
+                    <Button
+                      className="btn"
+                      value="Close"
+                      name="adduser"
+                      onHandleClick={() => this.handleOpenClick('')}
+                    />
+                  </div>
+                )}
               </div>
               <div className="col-2-3">
                 <UsersTable onDetailClick={() => this.handleOpenClick('openView')} />

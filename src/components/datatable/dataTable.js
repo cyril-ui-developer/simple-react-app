@@ -62,7 +62,7 @@ class DataTable extends React.Component<{}> {
   };
 
   handleChangeRowsPerPage = (event) => {
-    this.setState({ page: 0, rowsPerPage: event.target.value });
+    this.setState({ page: 0, rowsPerPage: parseInt(event.target.value, 10) });
   };
 
   render() {
@@ -89,8 +89,6 @@ class DataTable extends React.Component<{}> {
                   <TableCell>{row.firstname}</TableCell>
                   <TableCell>{row.lastname}</TableCell>
                   <TableCell>{row.phone}</TableCell>
-                  {/* <TableCell><Button className="btn" value="Edit"
-                name="editbutton" onHandleClick={() => handleClick(row)} /></TableCell> */}
                   <TableCell>
                     <Button
                       className="btn"

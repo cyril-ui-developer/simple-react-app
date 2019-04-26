@@ -1,14 +1,16 @@
 import {
-  LOAD_USER_DATA, ADD_USER_DATA, FETCH_USER_DATA, EDIT_USER_DATA, PENDING, SUCCESS, FAIL,
+  LOAD_USER_DATA, ADD_USER_DATA, FETCH_USER_DATA, EDIT_USER_DATA, DELETE_USER_DATA,
+  PENDING, SUCCESS, FAIL,
 } from '../constants';
 
 export const initialState = {
   loadingData: false,
   usersData: [],
   userData: {},
+  confirmSubmit: false,
 };
 
-const loadUsersDataActionMap = {
+const usersDataActionMap = {
 
   /* Load users */
   [`${LOAD_USER_DATA}${PENDING}`]: state => ({
@@ -37,6 +39,7 @@ const loadUsersDataActionMap = {
   [`${ADD_USER_DATA}${FAIL}`]: state => ({
     ...state,
     loadingData: false,
+    confirmSubmit: true,
   }),
   [`${ADD_USER_DATA}${SUCCESS}`]: (state, action) => {
     const { payload: { data } } = action;
@@ -45,6 +48,7 @@ const loadUsersDataActionMap = {
       // userData: data,
       usersData: [...state.usersData, data],
       loadingData: false,
+      confirmSubmit: true,
     };
   },
 
@@ -78,11 +82,30 @@ const loadUsersDataActionMap = {
       loadingData: false,
     };
   },
+
+
+  /* Delete user */
+  [`${DELETE_USER_DATA}${PENDING}`]: state => ({
+    ...state,
+    loadingData: true,
+  }),
+  [`${DELETE_USER_DATA}${FAIL}`]: state => ({
+    ...state,
+    loadingData: false,
+  }),
+  [`${DELETE_USER_DATA}${SUCCESS}`]: (state, action) => {
+    // Check API to find out  why data is empty
+    const { payload: { /* data */ config } } = action;
+    return {
+      ...state,
+      usersData: state.usersData.filter(d => d.id !== config.dataVal.id),
+      loadingData: false,
+    };
+  },
 };
 
-
 const actionsMap = {
-  ...loadUsersDataActionMap,
+  ...usersDataActionMap,
 };
 
 export default function reducer(state = initialState, action = {}) {

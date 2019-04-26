@@ -21,6 +21,7 @@ UserFormWrapped = connect((state) => {
 
 const mapStateToProps = state => ({
   reducedData: state.usersReducer.userData,
+  reducedConfirmSubmit: state.usersReducer.confirmSubmit,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -29,15 +30,19 @@ const mapDispatchToProps = dispatch => ({
 
 class EditUser extends Component<{}> {
     static propTypes = {
-      reducerData: PropTypes.shape({}),
-      reducedData: PropTypes.shape({}),
-      actionEditUser: PropTypes.func,
+      reducerData: PropTypes.shape({}).isRequired,
+      reducedData: PropTypes.shape({}).isRequired,
+      actionEditUser: PropTypes.func.isRequired,
+      onHandleConfirmClick: PropTypes.func.isRequired,
+      reducedConfirmSubmit: PropTypes.bool.isRequired,
     }
 
     static defaultProps = {
-      reducerData: {},
-      reducedData: {},
-      actionEditUser: {},
+    }
+
+    handleConfirmClick =() => {
+      const { onHandleConfirmClick, reducedConfirmSubmit } = this.props;
+      onHandleConfirmClick(reducedConfirmSubmit);
     }
 
     render() {
@@ -47,7 +52,11 @@ class EditUser extends Component<{}> {
         <Fragment>
           <UserFormWrapped
             enableReinitialize
-            onSubmit={values => actionEditUser(values)}
+            onSubmit={(values) => {
+              actionEditUser(values);
+              this.handleConfirmClick();
+            }
+            }
             initialValues={reducedData}
           />
         </Fragment>

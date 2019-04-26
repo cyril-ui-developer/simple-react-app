@@ -22,7 +22,8 @@ UserFormWrapped = connect(
   },
 )(UserFormWrapped);
 
-const mapStateToProps = () => ({
+const mapStateToProps = state => ({
+  reducedConfirmSubmit: state.usersReducer.confirmSubmit,
 
 });
 
@@ -36,14 +37,21 @@ class AddUser extends Component<{}> {
     actionAddUser: PropTypes.func,
     reducerData: PropTypes.shape({}),
     reducedData: PropTypes.shape({}),
+    onHandleConfirmClick: PropTypes.func.isRequired,
+    reducedConfirmSubmit: PropTypes.bool.isRequired,
   }
 
   static defaultProps = {
     reducerData: {},
     actionAddUser: {},
     reducedData: {},
+
   };
 
+  handleConfirmClick =() => {
+    const { onHandleConfirmClick, reducedConfirmSubmit } = this.props;
+    onHandleConfirmClick(reducedConfirmSubmit);
+  }
 
   render() {
     const {
@@ -54,7 +62,11 @@ class AddUser extends Component<{}> {
       <Fragment>
         <UserFormWrapped
           enableReinitialize
-          onSubmit={values => actionAddUser(values)}
+          onSubmit={(values) => {
+            actionAddUser(values);
+            this.handleConfirmClick();
+          }
+          }
           initialValues={reducedData}
         />
       </Fragment>

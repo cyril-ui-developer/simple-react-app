@@ -8,9 +8,9 @@ import loadUsersData from '../../redux/actions/loadUsers';
 import { FETCH_USER_DATA } from '../../redux/constants';
 import DataTable from '../../components/datatable';
 
-
 const mapStateToProps = state => ({
   reducedUsersData: state.usersReducer,
+  reducedData: state.usersReducer.userData,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -21,14 +21,12 @@ const mapDispatchToProps = dispatch => ({
 class UsersTable extends Component<{}> {
     static propTypes = {
       actionLoadUsers: PropTypes.func.isRequired,
-      reducedUsersData: PropTypes.shape({}),
-      fetchUser: PropTypes.func,
+      reducedUsersData: PropTypes.shape({}).isRequired,
+      fetchUser: PropTypes.func.isRequired,
       onDetailClick: PropTypes.func.isRequired,
     }
 
     static defaultProps = {
-      fetchUser: () => {},
-      reducedUsersData: {},
     };
 
     componentDidMount = () => {
@@ -43,7 +41,9 @@ class UsersTable extends Component<{}> {
     }
 
     render() {
-      const { reducedUsersData, fetchUser } = this.props;
+      const {
+        reducedUsersData, fetchUser,
+      } = this.props;
 
       return (
         <DataTable
@@ -55,7 +55,6 @@ class UsersTable extends Component<{}> {
             fetchUser(row);
             this.detailClick();
           }}
-
         />
       );
     }
