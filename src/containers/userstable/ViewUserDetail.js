@@ -58,7 +58,6 @@ class ViewUserDetail extends Component<{}> {
 
       return (
         <section>
-          {/* <header>View Detail</header> */}
           <ViewTableRowDetail configData={dataConfig} dataSource={reducedData} />
         </section>
       );

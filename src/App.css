@@ -44,6 +44,7 @@ Layout Styles
   margin-right: auto;
   margin-left: auto;
   max-width: 1170px;
+  margin-bottom: -25px;
 }
 /* Row */
 .row {
@@ -104,9 +105,9 @@ A module is a discrete, reusable component of the web page, such as the navigati
 .header-primary {
   background: #9b8579;
   text-align: center;
-  padding-top: 18px;
-  padding-bottom: 18px;
-  margin-bottom: 40px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
 }
 /* Footer Module */
 .footer-primary {
@@ -114,7 +115,7 @@ A module is a discrete, reusable component of the web page, such as the navigati
   text-align: center;
   padding-top: 10px;
   padding-bottom: 18px;
-  margin-top: 20px;
+  margin-top: 40px;
   margin-bottom: 20px;
 }
 

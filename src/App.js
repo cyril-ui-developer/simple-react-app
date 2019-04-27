@@ -20,8 +20,7 @@ class App extends Component <TextProps> {
       <main>
         <header className="header-primary"><h2>Simple React App</h2></header>
         <section>
-
-          <div style={{ width: 1000, margin: '0 auto' }}>
+          <div style={{ width: 1170, margin: '0 auto' }}>
             <Switch>
               <Route exact path="/" component={UsersDashboard} />
               <Redirect from="/users" to="/" />
