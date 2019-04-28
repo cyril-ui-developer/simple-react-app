@@ -7,6 +7,8 @@ import PropTypes from 'prop-types';
 import loadUsersData from '../../redux/actions/loadUsers';
 import { FETCH_USER_DATA } from '../../redux/constants';
 import DataTable from '../../components/datatable';
+import ErrorHandling from '../../components/errorhandling';
+
 
 const mapStateToProps = state => ({
   reducedUsersData: state.usersReducer,
@@ -42,15 +44,20 @@ class UsersTable extends Component<{}> {
 
     render() {
       const {
-        reducedUsersData, fetchUser,
+        reducedUsersData, fetchUser, actionLoadUsers,
       } = this.props;
-
+      if (reducedUsersData.error) {
+        return (
+          <ErrorHandling message={reducedUsersData.error} onRetry={() => actionLoadUsers()} />
+        );
+      }
       return (
         <DataTable
           rows={reducedUsersData.usersData}
           page={0}
           rowsPerPage={10}
-          rowsHeading={['Firstname', 'Lastname', 'Date of Birth', 'Action']}
+          rowsHeading={['Firstname', 'Lastname', 'Date of Birth', 'Phone', '']}
+          dataColumns={['firstname', 'lastname', 'dob', 'phone']}
           handleClick={(row) => {
             fetchUser(row);
             this.detailClick();

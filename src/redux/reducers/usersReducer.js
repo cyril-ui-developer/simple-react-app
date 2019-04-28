@@ -7,6 +7,7 @@ export const initialState = {
   loadingData: false,
   usersData: [],
   userData: {},
+  error: null,
   confirmSubmit: false,
 };
 
@@ -17,16 +18,22 @@ const usersDataActionMap = {
     ...state,
     loadingData: true,
   }),
-  [`${LOAD_USER_DATA}${FAIL}`]: state => ({
-    ...state,
-    loadingData: false,
-  }),
+  [`${LOAD_USER_DATA}${FAIL}`]: (state, action) => {
+    const { error: { data } } = action;
+
+    return {
+      ...state,
+      error: data || 'Unknown error',
+      loadingData: false,
+    };
+  },
   [`${LOAD_USER_DATA}${SUCCESS}`]: (state, action) => {
     const { payload: { data } } = action;
 
     return {
       ...state,
       usersData: data || [],
+      error: null,
       loadingData: false,
     };
   },

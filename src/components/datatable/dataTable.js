@@ -13,6 +13,7 @@ import TableHead from '@material-ui/core/TableHead';
 import Button from '../button';
 import TablePaginationActionsWrapped from './TablePaginationActionsWrapped';
 
+// const genId =(field)=>(Math.random() + field)
 
 const styles = theme => ({
   root: {
@@ -45,6 +46,7 @@ class DataTable extends React.Component<{}> {
     rowsHeading: PropTypes.arrayOf(PropTypes.string).isRequired,
     handleClick: PropTypes.func.isRequired,
     rows: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+    dataColumns: PropTypes.arrayOf(PropTypes.string).isRequired,
 
   };
 
@@ -67,7 +69,7 @@ class DataTable extends React.Component<{}> {
 
   render() {
     const {
-      classes, rows, rowsHeading, handleClick,
+      classes, rows, rowsHeading, handleClick, dataColumns,
     } = this.props;
     const { rowsPerPage, page } = this.state;
     const emptyRows = rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
@@ -82,10 +84,28 @@ class DataTable extends React.Component<{}> {
                   <CustomTableCell key={title}>{title}</CustomTableCell>
                 ))}
               </TableRow>
+
             </TableHead>
             <TableBody>
-              {/* data row should be use dynamic to make it reusable */}
-              {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map(row => (
+              {
+                  rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map(row => (
+                    <TableRow key={row.id}>
+                      {dataColumns.map(col => (
+                        <TableCell key={row[col]}>{ row[col]}</TableCell>
+                      ))
+                      }
+                      <TableCell>
+                        <Button
+                          className="btn"
+                          value="Detail"
+                          name="detailbutton"
+                          onHandleClick={() => handleClick(row)}
+                        />
+                      </TableCell>
+                    </TableRow>
+                  ))
+              }
+              {/* {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map(row => (
                 <TableRow key={row.id}>
                   <TableCell>{row.firstname}</TableCell>
                   <TableCell>{row.lastname}</TableCell>
@@ -99,7 +119,7 @@ class DataTable extends React.Component<{}> {
                     />
                   </TableCell>
                 </TableRow>
-              ))}
+              ))} */}
               {emptyRows > 0 && (
                 <TableRow style={{ height: 48 * emptyRows }}>
                   <TableCell colSpan={6} />
